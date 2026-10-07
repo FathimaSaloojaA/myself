@@ -1,0 +1,41 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  passcodeHash String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  memories     Memory[]
+}
+
+model Memory {
+  id                String   @id @default(uuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title             String
+  content           String
+  primaryEmotion    String
+  emotionIntensity  Int      @default(80)
+  secondaryEmotions String   @default("[]")
+  people            String   @default("[]")
+  place             String?
+  tags              String   @default("[]")
+  isPrivate         Boolean  @default(false)
+  isLocked          Boolean  @default(false)
+  unlockDate        DateTime?
+  mediaUrls         String   @default("[]")
+  audioUrl          String?
+  drawingUrl        String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
