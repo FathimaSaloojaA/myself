@@ -1,6 +1,6 @@
 import type { CreateMemoryPayload, LoginDTO, Memory, User } from '../types/index.js';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://myself-serverside.onrender.com/api';
 const LOCAL_STORAGE_KEY = 'myself_local_memories_v1';
 const LOCAL_USER_KEY = 'myself_local_user_v1';
 
