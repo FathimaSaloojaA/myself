@@ -1,0 +1,26 @@
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.*.local
+
+# SQLite database file (old, kept locally, not tracked)
+prisma/dev.db
+prisma/*.db
+prisma/*.db-journal
+
+# Build output
+dist/
+
+# Node modules
+node_modules/
+
+# Prisma generated client (regenerated via prisma generate)
+# node_modules/.prisma/
+
+# Uploaded files
+uploads/
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+*.log
